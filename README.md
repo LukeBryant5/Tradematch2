@@ -260,7 +260,7 @@ body.contractor-only-mode #contractorAuthScreen {
 </style>
 
 </head>
-<body><div id="contractorAuthScreen"><div class="auth-card"><div class="auth-brand">TradeMatch</div><div class="auth-subtitle">Contractor Portal · Demo Access</div><div class="auth-tabs"><button class="auth-tab active" id="authLoginTab" onclick="switchContractorAuth('login')">Log In</button><button class="auth-tab" id="authSignupTab" onclick="switchContractorAuth('signup')">Sign Up</button></div><div id="contractorLoginPanel" class="auth-panel active"><label class="auth-label">Email</label><input id="contractorLoginEmail" class="auth-input" type="email" placeholder="you@example.com"><label class="auth-label">Secure Password</label><div class="auth-password"><input id="contractorLoginPassword" class="auth-input" type="password" placeholder="Enter your password"><button class="auth-show" onclick="toggleContractorPassword('contractorLoginPassword',this)">Show</button></div><button class="auth-primary" onclick="contractorPortalLogin()">Log In to Contractor Portal</button><div id="contractorLoginError" class="auth-message auth-error"></div></div><div id="contractorSignupPanel" class="auth-panel"><label class="auth-label">Full Name</label><input id="contractorSignupName" class="auth-input" type="text" placeholder="Your full name"><label class="auth-label">Email</label><input id="contractorSignupEmail" class="auth-input" type="email" placeholder="you@example.com"><label class="auth-label">Secure Password</label><div class="auth-password"><input id="contractorSignupPassword" class="auth-input" type="password" placeholder="At least 8 characters"><button class="auth-show" onclick="toggleContractorPassword('contractorSignupPassword',this)">Show</button></div><label class="auth-label">Confirm Password</label><input id="contractorSignupConfirm" class="auth-input" type="password" placeholder="Re-enter your password"><button class="auth-primary" onclick="createContractorAccount()">Create Contractor Account</button><div id="contractorSignupError" class="auth-message auth-error"></div><div id="contractorSignupSuccess" class="auth-message auth-success"></div></div><div class="auth-note">Demo mode: any non-empty email and password will be accepted. You can switch to real authentication later.<br>Prototype login state is stored locally in this browser.</div>
+<body><div id="contractorAuthScreen"><div class="auth-card"><div class="auth-brand">TradeMatch</div><div class="auth-subtitle">Contractor Portal · Demo Access</div><div class="auth-tabs"><button class="auth-tab active" id="authLoginTab" onclick="switchContractorAuth('login')">Log In</button><button class="auth-tab" id="authSignupTab" onclick="switchContractorAuth('signup')">Sign Up</button></div><div id="contractorLoginPanel" class="auth-panel active"><label class="auth-label">Email</label><input id="contractorLoginEmail" class="auth-input" type="email" placeholder="you@example.com"><label class="auth-label">Secure Password</label><div class="auth-password"><input id="contractorLoginPassword" class="auth-input" type="password" placeholder="Enter your password"><button class="auth-show" onclick="toggleContractorPassword('contractorLoginPassword',this)">Show</button></div><button class="auth-primary" onclick="contractorPortalLogin()">Log In to Contractor Portal</button><div id="contractorLoginError" class="auth-message auth-error"></div></div><div id="contractorSignupPanel" class="auth-panel"><label class="auth-label">Full Name</label><input id="contractorSignupName" class="auth-input" type="text" placeholder="Your full name"><label class="auth-label">Email</label><input id="contractorSignupEmail" class="auth-input" type="text" inputmode="email" autocomplete="email" placeholder="Enter any email" oninvalid="this.setCustomValidity('')" oninput="this.setCustomValidity('')"><label class="auth-label">Secure Password</label><div class="auth-password"><input id="contractorSignupPassword" class="auth-input" type="password" placeholder="At least 8 characters"><button class="auth-show" onclick="toggleContractorPassword('contractorSignupPassword',this)">Show</button></div><label class="auth-label">Confirm Password</label><input id="contractorSignupConfirm" class="auth-input" type="password" placeholder="Re-enter your password"><button class="auth-primary" onclick="createContractorAccount()">Create Contractor Account</button><div id="contractorSignupError" class="auth-message auth-error"></div><div id="contractorSignupSuccess" class="auth-message auth-success"></div></div><div class="auth-note">Demo mode: any non-empty email and password will be accepted. You can switch to real authentication later.<br>Prototype login state is stored locally in this browser.</div>
 <button type="button" onclick="openCustomerOnlyMode()" style="width:100%;margin-top:18px;border:1px solid #d5dee8;border-radius:12px;background:#f8fafc;color:#0b2545;padding:13px;font-weight:850;cursor:pointer;">
   Have a problem that needs fixing? Click here
 </button>
@@ -592,8 +592,8 @@ body.contractor-only-mode #contractorAuthScreen {
 
 <div id="pageProfile" class="contractor-page">
 <div class="profile-edit-card" style="margin-top:20px">
-<div class="profile-edit-top"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&q=80"><div><h2>Jake Miller</h2><p>Licensed Electrician · Louisville, KY</p><span class="verified">✓ Verified TradeMatch Pro</span></div></div>
-<div class="edit-grid"><label>Business Name<input value="Jake Miller Electrical"></label><label>Trade<select><option>Electrical</option></select></label><label>Service Area<input value="Louisville, KY"></label><label>Hourly Rate<input value="$95 / hour"></label><label style="grid-column:1/-1">About<textarea>Licensed electrician serving Louisville homeowners with residential electrical repairs, installations, and troubleshooting.</textarea></label></div>
+<div class="profile-edit-top"><div class="profile-photo-edit"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&q=80" alt="Contractor profile picture"><button type="button" class="profile-photo-change" onclick="changeContractorPicture()" title="Choose or change profile picture">📷</button></div><div><h2>Jake Miller</h2><p>Licensed Electrician · Louisville, KY</p><span class="verified">✓ Verified TradeMatch Pro</span><div style="margin-top:9px"><button type="button" class="secondary profile-photo-text-button" onclick="changeContractorPicture()">Choose / Change Image</button></div></div></div>
+<div class="edit-grid"><label>Full Name<input id="contractorFullName" value="Jake Miller"></label><label>Business Name<input value="Jake Miller Electrical"></label><label>Trade<select><option>Electrical</option></select></label><label>Service Area<input value="Louisville, KY"></label><label>Hourly Rate<input value="$95 / hour"></label><label style="grid-column:1/-1">About<textarea>Licensed electrician serving Louisville homeowners with residential electrical repairs, installations, and troubleshooting.</textarea></label></div>
 <button class="primary save-profile" onclick="showToast('Profile changes saved')">Save Profile</button>
 </div></div>
 </main></div>
@@ -720,28 +720,111 @@ function quick(trade){
   document.getElementById('need').focus();
   showToast(trade+' selected — click Find available pros');
 }
-function findPros(){
-  const trade=document.getElementById('trade').value;
-  const need=document.getElementById('need').value.trim();
-  if(trade==='Choose a trade'){showToast('Choose a trade first');return;}
-  const pros=tradePros[trade]||[];
-  document.getElementById('resultsTitle').textContent='Available '+trade+' Pros';
-  document.getElementById('resultsSubtitle').textContent=need?'Matching pros for: "'+need+'"':'Available '+trade.toLowerCase()+' professionals near Louisville, KY';
-  document.getElementById('resultsGrid').innerHTML=pros.map(p=>`
+function getRegisteredTradeMatchPros(trade){
+  const matches=[];
+  const keys=['tradematch_contractor_accounts_v1','tradematch_contractor_accounts','tradematch_contractor_account_v3','tradematch_contractor_account_v2'];
+  const seen=new Set();
+  keys.forEach(key=>{
+    try{
+      const raw=JSON.parse(localStorage.getItem(key)||'null');
+      const accounts=Array.isArray(raw)?raw:(raw&&raw.email?[raw]:[]);
+      accounts.forEach(a=>{
+        const name=String(a.name||'').trim();
+        const accountTrade=String(a.trade||'').trim();
+        const business=String(a.businessName||'').trim();
+        if(!name || !accountTrade || accountTrade.toLowerCase()!==trade.toLowerCase())return;
+        const id=(a.email||name+'|'+business).toLowerCase();
+        if(seen.has(id))return;
+        seen.add(id);
+        matches.push({
+          name:business||name,
+          rating:a.rating||'New',
+          reviews:a.reviews||'0',
+          distance:a.distance||'Local',
+          specialty:a.specialty||trade+' Professional',
+          photo:a.profilePicture||'',
+          registered:true,
+          accountName:name,
+          email:a.email||''
+        });
+      });
+    }catch(e){}
+  });
+  return matches;
+}
+let currentCustomerPros=[];
+let currentCustomerTrade='';
+function renderCustomerPros(showAll=false){
+  const grid=document.getElementById('resultsGrid');
+  const sorted=[...currentCustomerPros].sort((a,b)=>{
+    const ar=parseFloat(a.rating)||0, br=parseFloat(b.rating)||0;
+    if(br!==ar) return br-ar;
+    return (parseInt(b.reviews)||0)-(parseInt(a.reviews)||0);
+  });
+  const visible=showAll?sorted:sorted.slice(0,5);
+  grid.innerHTML=visible.map(p=>`
     <div class="pro">
-      <img src="${p.photo}" alt="${p.name}">
+      <img src="${p.photo||('data:image/svg+xml;charset=UTF-8,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="150" height="150"><rect width="150" height="150" fill="#0b2545"/><text x="75" y="88" text-anchor="middle" font-family="Arial" font-size="42" font-weight="700" fill="white">'+String(p.name||'TM').split(/\s+/).filter(Boolean).slice(0,2).map(x=>x[0]).join('').toUpperCase()+'</text></svg>'))}" alt="${p.name}">
       <div class="pro-info">
         <b>${p.name} ✓</b>
         <div class="rating">★ ${p.rating} (${p.reviews})</div>
         <span class="tag">${p.specialty}</span>
         <div class="pro-distance">⌖ ${p.distance} away</div>
         <div class="pro-available"><i></i> Available for jobs</div><br>
-        <button class="book-pro" onclick="bookPro('${p.name.replace(/'/g,"\\'")}')">View profile & book</button>
+        <button class="book-pro" onclick="bookPro('${String(p.name).replace(/'/g,"\\'")}')">View profile & book</button>
       </div>
     </div>`).join('');
+  const existing=document.getElementById('showAllProsBtn');
+  if(existing) existing.remove();
+  if(sorted.length>5 && !showAll){
+    const wrap=document.createElement('div');
+    wrap.id='showAllProsBtn';
+    wrap.style='text-align:center;margin-top:22px;';
+    wrap.innerHTML='<button type="button" onclick="showAllCustomerPros()" style="border:1px solid #1769e8;background:#fff;color:#1769e8;border-radius:10px;padding:12px 24px;font-weight:850;cursor:pointer;">Show all '+sorted.length+' '+currentCustomerTrade+' pros →</button>';
+    grid.parentElement.appendChild(wrap);
+  }
+}
+function showAllCustomerPros(){
+  // Rebuild the full list at click time so every contractor currently registered
+  // on this browser/site prototype is included, not just the top-rated results.
+  const registered=getRegisteredTradeMatchPros(currentCustomerTrade);
+  const combined=[...(tradePros[currentCustomerTrade]||[]), ...registered];
+  const seen=new Set();
+  currentCustomerPros=combined.filter(p=>{
+    const id=String(p.email||p.name||'').trim().toLowerCase();
+    if(!id || seen.has(id)) return false;
+    seen.add(id);
+    return true;
+  });
+  renderCustomerPros(true);
+  const title=document.getElementById('resultsTitle');
+  const subtitle=document.getElementById('resultsSubtitle');
+  if(title) title.textContent='All '+currentCustomerTrade+' Pros';
+  if(subtitle) subtitle.textContent='Showing every TradeMatch contractor currently available in '+currentCustomerTrade+'.';
+  showToast('Showing all '+currentCustomerPros.length+' '+currentCustomerTrade.toLowerCase()+' contractors');
+}
+function findPros(){
+  let trade=document.getElementById('trade').value;
+  const need=document.getElementById('need').value.trim();
+  if(trade==='Choose a trade'){
+    const q=need.toLowerCase();
+    const inferred=Object.keys(tradePros).find(t=>{
+      const words={Plumbing:['plumb','leak','drain','pipe','faucet','water heater'],Electrical:['electric','outlet','wiring','light','breaker'],HVAC:['hvac','air conditioning','ac ','furnace','heating','cooling','thermostat'],Handyman:['handyman','repair','mount','assemble','fix'],Roofing:['roof','shingle','gutter'],Painting:['paint','wall','interior','exterior']};
+      return (words[t]||[]).some(w=>q.includes(w));
+    });
+    if(inferred){trade=inferred;document.getElementById('trade').value=trade;}
+    else{showToast('Choose a trade or describe your problem first');return;}
+  }
+  const builtIn=tradePros[trade]||[];
+  const registered=getRegisteredTradeMatchPros(trade);
+  currentCustomerPros=[...builtIn,...registered];
+  currentCustomerTrade=trade;
+  document.getElementById('resultsTitle').textContent='Top Rated '+trade+' Pros';
+  document.getElementById('resultsSubtitle').textContent=need?'Top-rated matching pros for: "'+need+'"':'Top-rated '+trade.toLowerCase()+' professionals near Louisville, KY';
+  renderCustomerPros(false);
   document.getElementById('matchingResults').style.display='block';
   document.getElementById('matchingResults').scrollIntoView({behavior:'smooth',block:'start'});
-  showToast(pros.length+' '+trade.toLowerCase()+' pros found');
+  showToast('Showing the top '+Math.min(5,currentCustomerPros.length)+' '+trade.toLowerCase()+' pros');
 }
 function clearResults(){document.getElementById('matchingResults').style.display='none';}
 const profileData = {
@@ -995,7 +1078,17 @@ function submitContractorQuote(){
  showToast('Quote submitted for $'+price.toLocaleString()+' ✓');
 }
 </script>
-<script>(function(){const A='tradematch_contractor_account_v3',S='tradematch_contractor_session_v3';function msg(id,t,show=true){const e=document.getElementById(id);e.textContent=t;e.style.display=show?'block':'none'}function clear(){['contractorLoginError','contractorSignupError','contractorSignupSuccess'].forEach(x=>msg(x,'',false))}window.switchContractorAuth=function(t){clear();let l=t==='login';document.getElementById('contractorLoginPanel').classList.toggle('active',l);document.getElementById('contractorSignupPanel').classList.toggle('active',!l);document.getElementById('authLoginTab').classList.toggle('active',l);document.getElementById('authSignupTab').classList.toggle('active',!l)};window.toggleContractorPassword=function(id,b){let e=document.getElementById(id),show=e.type==='password';e.type=show?'text':'password';b.textContent=show?'Hide':'Show'};window.createContractorAccount=function(){clear();let n=document.getElementById('contractorSignupName').value.trim(),e=document.getElementById('contractorSignupEmail').value.trim().toLowerCase(),p=document.getElementById('contractorSignupPassword').value,c=document.getElementById('contractorSignupConfirm').value;if(!n)return msg('contractorSignupError','Please enter your full name.');if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e))return msg('contractorSignupError','Please enter a valid email address.');if(p.length<8||!/[A-Z]/.test(p)||!/[a-z]/.test(p)||!/[0-9]/.test(p))return msg('contractorSignupError','Password needs 8+ characters, uppercase, lowercase, and a number.');if(p!==c)return msg('contractorSignupError','The passwords do not match.');let old=null;try{old=JSON.parse(localStorage.getItem(A)||'null')}catch(x){}if(old&&old.email===e)return msg('contractorSignupError','An account with this email already exists. Please log in.');localStorage.setItem(A,JSON.stringify({name:n,email:e,password:p}));document.getElementById('contractorLoginEmail').value=e;msg('contractorSignupSuccess','Account created. You can now log in.');setTimeout(()=>switchContractorAuth('login'),700)};window.contractorPortalLogin=function(){clear();let e=document.getElementById('contractorLoginEmail').value.trim(),p=document.getElementById('contractorLoginPassword').value;if(!e||!p)return msg('contractorLoginError','Enter any email and password to continue.');localStorage.setItem(S,'true');localStorage.setItem('tradematch_demo_login_email',e);document.getElementById('contractorAuthScreen').classList.add('auth-hidden')};window.contractorPortalLogout=function(){localStorage.removeItem(S);document.getElementById('contractorAuthScreen').classList.remove('auth-hidden');switchContractorAuth('login')};document.addEventListener('DOMContentLoaded',()=>{if(localStorage.getItem(S)==='true')document.getElementById('contractorAuthScreen').classList.add('auth-hidden')})})();</script>
+<script>
+(function(){
+  const SESSION_KEY='tradematch_contractor_session_v3';
+  function msg(id,t,show=true){const e=document.getElementById(id);if(!e)return;e.textContent=t;e.style.display=show?'block':'none'}
+  function clear(){['contractorLoginError','contractorSignupError','contractorSignupSuccess'].forEach(x=>msg(x,'',false))}
+  window.switchContractorAuth=function(t){clear();const login=t==='login';document.getElementById('contractorLoginPanel')?.classList.toggle('active',login);document.getElementById('contractorSignupPanel')?.classList.toggle('active',!login);document.getElementById('authLoginTab')?.classList.toggle('active',login);document.getElementById('authSignupTab')?.classList.toggle('active',!login)};
+  window.toggleContractorPassword=function(id,b){const e=document.getElementById(id);if(!e)return;const show=e.type==='password';e.type=show?'text':'password';if(b)b.textContent=show?'Hide':'Show'};
+  window.contractorPortalLogout=function(){localStorage.removeItem(SESSION_KEY);document.getElementById('contractorAuthScreen')?.classList.remove('auth-hidden');switchContractorAuth('login')};
+  document.addEventListener('DOMContentLoaded',()=>{if(localStorage.getItem(SESSION_KEY)==='true')document.getElementById('contractorAuthScreen')?.classList.add('auth-hidden')});
+})();
+</script>
 
 <div id="customerOnlyOverlay" style="display:none;position:fixed;inset:0;z-index:99998;background:#fff;overflow:auto;">
   <div style="position:sticky;top:0;z-index:5;background:#0b2545;color:#fff;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;">
@@ -1029,7 +1122,7 @@ function submitContractorQuote(){
 
 <script id="tradematch-side-lock-script">
 (function(){
-  const AUTH_SESSION = "tradematch_contractor_session_v2";
+  const AUTH_SESSION = "tradematch_contractor_session_v3";
 
   function findCustomerContent(){
     // Prefer the original customer app if it exists in this combined prototype.
@@ -1108,65 +1201,7 @@ function submitContractorQuote(){
 </script>
 
 
-<script id="strict-contractor-side-lock">
-(function(){
-  const SESSION_KEY = "tradematch_contractor_session_v2";
 
-  function hideCustomerSide(){
-    const selectors = [
-      "#customerView","#customerPage",".customer-view",".customer-page",
-      ".customer-nav",".customer-only","[data-customer-side]"
-    ];
-    selectors.forEach(sel=>{
-      document.querySelectorAll(sel).forEach(el=>{
-        el.style.setProperty("display","none","important");
-      });
-    });
-
-    // Hide top-level Customer/Contractor switch controls while authenticated.
-    document.querySelectorAll(
-      '[onclick*="customer"],[onclick*="Customer"],[data-view="customer"],[data-side="customer"]'
-    ).forEach(el=>{
-      if(!el.closest("#contractorAuthScreen")) {
-        el.style.setProperty("display","none","important");
-      }
-    });
-
-    document.body.classList.add("contractor-only-mode");
-  }
-
-  function showCustomerSide(){
-    document.body.classList.remove("contractor-only-mode");
-  }
-
-  function applyMode(){
-    if(false){
-      hideCustomerSide();
-    } else {
-      showCustomerSide();
-    }
-  }
-
-  window.addEventListener("load",applyMode);
-  document.addEventListener("DOMContentLoaded",applyMode);
-
-  // Re-apply after UI navigation changes, since the prototype dynamically changes panels.
-  const observer = new MutationObserver(function(){
-    if(localStorage.getItem(SESSION_KEY)==="true") hideCustomerSide();
-  });
-  observer.observe(document.documentElement,{childList:true,subtree:true});
-
-  // Wrap logout so the customer side can return normally after signing out.
-  const originalLogout = window.contractorPortalLogout;
-  if(typeof originalLogout==="function"){
-    window.contractorPortalLogout=function(){
-      localStorage.removeItem(SESSION_KEY);
-      showCustomerSide();
-      return originalLogout.apply(this,arguments);
-    };
-  }
-})();
-</script>
 
 
 <script id="mandatory-contractor-signin-gate">
@@ -1309,7 +1344,7 @@ function openContractorProfileMenu(){
   document.body.appendChild(menu);
 }
 function signOutContractor(){
-  localStorage.removeItem('tradematch_contractor_session_v2');
+  localStorage.removeItem('tradematch_contractor_session_v3');
   location.reload();
 }
 </script>
@@ -1319,109 +1354,431 @@ function signOutContractor(){
 
 <input id="contractorProfilePictureInput" type="file" accept="image/*" style="display:none;" onchange="handleContractorPicture(event)">
 
-<script>
-function changeContractorPicture(){
-  const input=document.getElementById('contractorProfilePictureInput');
-  if(input) input.click();
-}
-
-function handleContractorPicture(event){
-  const file=event.target.files && event.target.files[0];
-  if(!file) return;
-  if(!file.type.startsWith('image/')){
-    alert('Please choose an image file.');
-    return;
-  }
-  const reader=new FileReader();
-  reader.onload=function(e){
-    const data=e.target.result;
-    localStorage.setItem('tradematch_contractor_profile_picture_v1',data);
-    applyContractorProfilePicture(data);
-    if(typeof showToast==='function') showToast('Profile picture updated');
-  };
-  reader.readAsDataURL(file);
-}
-
-function applyContractorProfilePicture(data){
-  if(!data) return;
-  const selectors=[
-    '.profile-avatar',
-    '#profileAvatar',
-    '[data-contractor-avatar]'
-  ];
-  selectors.forEach(sel=>{
-    document.querySelectorAll(sel).forEach(el=>{
-      if(el.tagName==='IMG'){
-        el.src=data;
-      }else{
-        el.style.backgroundImage='url("'+data+'")';
-        el.style.backgroundSize='cover';
-        el.style.backgroundPosition='center';
-        el.textContent='';
-      }
-    });
-  });
-}
-
-document.addEventListener('DOMContentLoaded',function(){
-  const saved=localStorage.getItem('tradematch_contractor_profile_picture_v1');
-  if(saved) applyContractorProfilePicture(saved);
-});
-</script>
 
 
-<script>
-function getContractorAccount(){
-  try { return JSON.parse(localStorage.getItem('tradematch_contractor_account_v2') || '{}'); }
-  catch(e){ return {}; }
-}
-function contractorInitials(name){
-  const parts=(name||'').trim().split(/\s+/).filter(Boolean);
-  if(!parts.length) return 'TM';
-  if(parts.length===1) return parts[0].slice(0,2).toUpperCase();
-  return (parts[0][0]+parts[parts.length-1][0]).toUpperCase();
-}
-function updateContractorInitials(){
-  const account=getContractorAccount();
-  const name=account.name || account.fullName || account.displayName || '';
-  const initials=contractorInitials(name);
-  document.querySelectorAll('.profile-avatar, .avatar, [data-contractor-avatar]').forEach(el=>{
-    if(el.tagName==='IMG') return;
-    el.textContent=initials;
-  });
-  document.querySelectorAll('[data-contractor-name]').forEach(el=>{
-    if(name) el.textContent=name;
-  });
-}
-document.addEventListener('DOMContentLoaded', updateContractorInitials);
-</script>
 
 
-<script>
+
+
+
+
+
+<style id="contractor-working-features">
+/* Working contractor messaging/profile/personalization UI */
+.contractor-message-layout{display:grid;grid-template-columns:300px 1fr;min-height:520px}
+.contractor-thread-list{border-right:1px solid #edf1f6;background:#fbfcfe}
+.contractor-thread{width:100%;border:0;background:#fff;text-align:left;padding:15px 16px;border-bottom:1px solid #edf1f6;cursor:pointer}
+.contractor-thread:hover,.contractor-thread.active{background:#edf5ff}
+.contractor-thread b{font-size:12px}.contractor-thread small{display:block;color:#718096;font-size:10px;margin-top:4px}
+.contractor-chat{display:flex;flex-direction:column;min-height:520px}
+.contractor-chat-head{padding:15px 18px;border-bottom:1px solid #edf1f6}
+.contractor-chat-head b{font-size:14px}.contractor-chat-head small{display:block;color:#718096;margin-top:4px;font-size:10px}
+.contractor-chat-body{flex:1;padding:18px;overflow:auto;background:#f8fafc}
+.chat-bubble{max-width:75%;padding:10px 13px;border-radius:13px;margin:8px 0;font-size:12px;line-height:1.45}
+.chat-bubble.customer{background:#fff;border:1px solid #e1e8f0;margin-right:auto}
+.chat-bubble.contractor{background:#1769e8;color:#fff;margin-left:auto}
+.chat-time{display:block;font-size:9px;opacity:.65;margin-top:4px}
+.contractor-chat-compose{display:flex;gap:8px;padding:12px;border-top:1px solid #edf1f6;background:#fff}
+.contractor-chat-compose textarea{flex:1;resize:none;border:1px solid #d6e0ec;border-radius:9px;padding:10px;font:inherit;font-size:12px;min-height:42px}
+.contractor-chat-compose button{border:0;background:#1769e8;color:#fff;border-radius:9px;padding:0 15px;font-weight:800}
+.profile-photo-edit{position:relative;display:inline-block}
+.profile-photo-edit button{position:absolute;right:-5px;bottom:-5px;border:2px solid #fff;background:#1769e8;color:#fff;width:30px;height:30px;border-radius:50%;cursor:pointer}
+@media(max-width:750px){.contractor-message-layout{grid-template-columns:1fr}.contractor-thread-list{border-right:0;max-height:190px;overflow:auto}.contractor-chat{min-height:430px}}
+</style>
+
+<script id="contractor-working-features-script">
 (function(){
-  function saveSignupName(){
-    const fields=[
-      document.querySelector('#signupName'),
-      document.querySelector('#fullName'),
-      document.querySelector('input[name="name"]'),
-      document.querySelector('input[name="fullName"]'),
-      document.querySelector('input[placeholder*="name" i]')
-    ].filter(Boolean);
-    const field=fields.find(x=>x.value && x.value.trim());
-    if(!field) return;
-    let account={};
-    try { account=JSON.parse(localStorage.getItem('tradematch_contractor_account_v2') || '{}'); } catch(e){}
-    account.name=field.value.trim();
-    localStorage.setItem('tradematch_contractor_account_v2',JSON.stringify(account));
-    if(typeof updateContractorInitials==='function') updateContractorInitials();
+  const ACCOUNT_KEY='tradematch_contractor_account_v3';
+  const PIC_KEY='tradematch_contractor_profile_picture_v1';
+  const MSG_KEY='tradematch_contractor_messages_v1';
+  const P_ORDER='tradematch_personalization_v1';
+  const P_ENABLED='tradematch_personalization_enabled_v1';
+
+  const defaultMessages={
+    sarah:{name:'Sarah Johnson',initials:'SJ',subject:'Kitchen outlet repair',messages:[
+      {from:'customer',text:'Are you available tomorrow morning?',time:'9:14 AM'},
+      {from:'customer',text:'I can do 9:00 AM if that works for you.',time:'9:18 AM'}
+    ]},
+    mark:{name:'Mark Davis',initials:'MD',subject:'AC service',messages:[
+      {from:'customer',text:'Thanks for the quick quote.',time:'Yesterday'},
+      {from:'customer',text:'I would like to move forward with the repair.',time:'Yesterday'}
+    ]},
+    emily:{name:'Emily Carter',initials:'EC',subject:'Water heater',messages:[
+      {from:'customer',text:'Can we move the appointment to Friday?',time:'Tuesday'},
+      {from:'customer',text:'Friday afternoon would work best for me.',time:'Tuesday'}
+    ]}
+  };
+
+  function getAccount(){
+    try{return JSON.parse(localStorage.getItem(ACCOUNT_KEY)||'{}')}catch(e){return {}}
   }
-  document.addEventListener('click',function(e){
-    const t=e.target;
-    if(t && /sign.?up|create account|create account/i.test((t.textContent||''))) {
-      setTimeout(saveSignupName,50);
+  function saveAccount(a){localStorage.setItem(ACCOUNT_KEY,JSON.stringify(a))}
+  function getMessages(){
+    try{
+      const x=JSON.parse(localStorage.getItem(MSG_KEY)||'null');
+      if(x) return x;
+    }catch(e){}
+    localStorage.setItem(MSG_KEY,JSON.stringify(defaultMessages));
+    return JSON.parse(JSON.stringify(defaultMessages));
+  }
+  let messages=getMessages(), activeThread='sarah';
+
+  function accountName(){return getAccount().name||'Jake Miller'}
+  function initials(name){
+    const p=(name||'').trim().split(/\s+/).filter(Boolean);
+    return p.length>1?(p[0][0]+p[p.length-1][0]).toUpperCase():(p[0]||'TM').slice(0,2).toUpperCase();
+  }
+  function setText(sel,val){document.querySelectorAll(sel).forEach(e=>e.textContent=val)}
+
+  function applyProfile(){
+    const a=getAccount(), name=a.name||'Jake Miller';
+    setText('[data-contractor-name]',name);
+    setText('#pageProfile .profile-edit-top h2',name);
+    setText('#pageProfile .profile-edit-top p',(a.trade||'Licensed Electrician')+' · '+(a.serviceArea||'Louisville, KY'));
+    setText('.dash-head h1','Good morning, '+name.split(' ')[0]+'!');
+    document.querySelectorAll('.avatar,.profile-avatar,#pageProfile .profile-edit-top img').forEach(img=>{
+      const pic=localStorage.getItem(PIC_KEY);
+      if(pic && img.tagName==='IMG') img.src=pic;
+      img.alt=name+' profile picture';
+    });
+    const drop=document.querySelector('.profile-dropdown-head');
+    if(drop){
+      const strong=drop.querySelector('strong'), span=drop.querySelector('span'), img=drop.querySelector('img');
+      if(strong) strong.textContent=name;
+      if(span) span.textContent=a.trade||'Licensed Electrician';
+      const pic=localStorage.getItem(PIC_KEY); if(pic&&img) img.src=pic;
+    }
+    const profileInputs=document.querySelectorAll('#pageProfile .edit-grid input,#pageProfile .edit-grid textarea,#pageProfile .edit-grid select');
+    if(profileInputs.length){
+      const vals=[a.businessName||name+' Electrical',a.trade||'Electrical',a.serviceArea||'Louisville, KY',a.hourlyRate||'$95 / hour',a.about||'Licensed electrician serving Louisville homeowners with residential electrical repairs, installations, and troubleshooting.'];
+      profileInputs.forEach((el,i)=>{if(vals[i]!=null) el.value=vals[i]});
+    }
+  }
+
+  window.saveContractorProfile=function(){
+    const els=document.querySelectorAll('#pageProfile .edit-grid input,#pageProfile .edit-grid textarea,#pageProfile .edit-grid select');
+    if(els.length<6)return;
+    const old=getAccount();
+    const a=Object.assign({},old,{
+      name:document.getElementById('contractorFullName')?.value.trim()||old.name||'Jake Miller',
+      businessName:els[1].value.trim(), trade:els[2].value, serviceArea:els[3].value.trim(),
+      hourlyRate:els[4].value.trim(), about:els[5].value.trim()
+    });
+    saveAccount(a); applyProfile(); showToast('Profile changes saved');
+  };
+
+  window.openContractorThread=function(id){
+    activeThread=id; renderMessages();
+  };
+
+  function renderMessages(){
+    const host=document.getElementById('pageMessages');
+    if(!host)return;
+    const list=Object.entries(messages).map(([id,t])=>`
+      <button class="contractor-thread ${id===activeThread?'active':''}" onclick="openContractorThread('${id}')">
+        <b>${t.name}</b><small>${t.subject}</small><small>${t.messages[t.messages.length-1]?.text||''}</small>
+      </button>`).join('');
+    const t=messages[activeThread]||messages.sarah;
+    const bubbles=t.messages.map(m=>`<div class="chat-bubble ${m.from==='contractor'?'contractor':'customer'}">${escapeHtml(m.text)}<span class="chat-time">${escapeHtml(m.time||'')}</span></div>`).join('');
+    host.innerHTML=`<div class="panel" style="margin-top:20px;overflow:hidden">
+      <div class="panel-head">Messages <span style="color:#1769e8;font-size:11px">${Object.keys(messages).length} conversations</span></div>
+      <div class="contractor-message-layout">
+        <div class="contractor-thread-list">${list}</div>
+        <div class="contractor-chat">
+          <div class="contractor-chat-head"><b>${t.name}</b><small>${t.subject}</small></div>
+          <div class="contractor-chat-body" id="contractorChatBody">${bubbles}</div>
+          <div class="contractor-chat-compose">
+            <textarea id="contractorReply" placeholder="Reply to ${t.name}..." onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendContractorReply()}"></textarea>
+            <button onclick="sendContractorReply()">Send</button>
+          </div>
+        </div>
+      </div>
+    </div>`;
+    const body=document.getElementById('contractorChatBody'); if(body) body.scrollTop=body.scrollHeight;
+  }
+  function escapeHtml(x){return String(x).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+  window.sendContractorReply=function(){
+    const input=document.getElementById('contractorReply'), text=input?.value.trim();
+    if(!text)return showToast('Write a reply first');
+    const t=messages[activeThread];
+    t.messages.push({from:'contractor',text,time:new Date().toLocaleTimeString([], {hour:'numeric',minute:'2-digit'})});
+    localStorage.setItem(MSG_KEY,JSON.stringify(messages));
+    renderMessages(); showToast('Reply sent to '+t.name);
+  };
+
+  function applyPersonalization(){
+    const order=JSON.parse(localStorage.getItem(P_ORDER)||'null')||['overview','jobs','activity','quick','earnings','schedule','messages'];
+    const enabled=JSON.parse(localStorage.getItem(P_ENABLED)||'null')||{};
+    const dash=document.querySelector('.contractor .dash');
+    if(!dash)return;
+    const map={
+      overview:document.querySelector('.contractor .metrics'),
+      jobs:document.querySelector('.contractor .dashboard-grid > .panel'),
+      activity:document.querySelector('.contractor .nearby-card'),
+      quick:document.querySelector('.contractor .right-stack .panel:last-child')
+    };
+    // Only dashboard widgets are moved here; full-page tabs remain in the sidebar.
+    const grid=document.querySelector('.contractor .dashboard-grid');
+    if(grid){
+      const left=grid.children[0], right=grid.children[1];
+      order.filter(id=>['jobs','activity','quick'].includes(id)).forEach(id=>{
+        const el=map[id]; if(!el)return;
+        if(id==='jobs')left.appendChild(el);
+        else right.appendChild(el);
+        el.style.display=enabled[id]===false?'none':'';
+      });
+    }
+    if(map.overview)map.overview.style.display=enabled.overview===false?'none':'';
+  }
+
+  window.savePersonalization=(function(original){
+    return function(){
+      localStorage.setItem(P_ORDER,JSON.stringify(personalizationOrder));
+      localStorage.setItem(P_ENABLED,JSON.stringify(personalizationEnabled));
+      closePersonalization(); applyPersonalization();
+      showToast('Dashboard personalization saved');
+    }
+  })(window.savePersonalization);
+
+  // Make the personalization controls update the live page when arrows are used.
+  const oldMove=window.movePersonalization;
+  window.movePersonalization=function(i,d){oldMove(i,d);applyPersonalization()};
+
+  // Patch contractor page navigation so messages/profile always render correctly.
+  const oldShow=window.showContractorPage;
+  window.showContractorPage=function(page){
+    oldShow(page);
+    if(page==='messages')setTimeout(renderMessages,20);
+    if(page==='profile')setTimeout(applyProfile,20);
+    applyPersonalization();
+  };
+
+  document.addEventListener('DOMContentLoaded',()=>{
+    applyProfile();
+    applyPersonalization();
+    renderMessages();
+    // Replace the profile save button's demo action with the real save function.
+    const save=document.querySelector('#pageProfile .save-profile');if(save)save.onclick=saveContractorProfile;
+    // Add a real photo button to the profile card.
+    const top=document.querySelector('#pageProfile .profile-edit-top');
+    if(top&&!top.querySelector('.profile-photo-edit')){
+      const img=top.querySelector('img');
+      if(img){
+        const wrap=document.createElement('div');wrap.className='profile-photo-edit';
+        img.parentNode.insertBefore(wrap,img);wrap.appendChild(img);
+        const b=document.createElement('button');b.type='button';b.textContent='📷';b.title='Change profile picture';b.onclick=changeContractorPicture;wrap.appendChild(b);
+      }
     }
   });
-  document.addEventListener('submit',function(){ setTimeout(saveSignupName,50); });
+})();
+</script>
+
+
+<style id="personal-contractor-onboarding-style">
+#contractorOnboardingOverlay{position:fixed;inset:0;background:rgba(7,20,39,.62);z-index:99999;display:none;align-items:center;justify-content:center;padding:20px}
+#contractorOnboardingOverlay.open{display:flex}
+.contractor-onboarding-card{width:min(620px,100%);max-height:92vh;overflow:auto;background:#fff;border-radius:22px;box-shadow:0 24px 80px rgba(0,0,0,.28);padding:28px}
+.contractor-onboarding-card h2{margin:0 0 7px;font-family:'Space Grotesk',sans-serif;color:#0b2545;font-size:27px}
+.contractor-onboarding-card .lead{margin:0 0 22px;color:#64748b;line-height:1.5}
+.onboarding-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.onboarding-field{display:flex;flex-direction:column;gap:7px}
+.onboarding-field.full{grid-column:1/-1}
+.onboarding-field label{font-size:12px;font-weight:850;color:#334155}
+.onboarding-field input,.onboarding-field textarea,.onboarding-field select{width:100%;box-sizing:border-box;border:1px solid #d7e0ea;border-radius:11px;padding:11px 12px;font:inherit;outline:none;background:#fff}
+.onboarding-field textarea{min-height:115px;resize:vertical}
+.onboarding-field input:focus,.onboarding-field textarea:focus,.onboarding-field select:focus{border-color:#3180ff;box-shadow:0 0 0 3px rgba(49,128,255,.10)}
+.onboarding-photo{display:flex;align-items:center;gap:15px;padding:14px;border:1px dashed #cbd5e1;border-radius:14px;background:#f8fafc}
+.onboarding-avatar{width:70px;height:70px;border-radius:50%;object-fit:cover;display:grid;place-items:center;flex:0 0 70px;background:#0b2545;color:#fff;font-weight:900;font-size:20px;overflow:hidden}
+.onboarding-avatar img{width:100%;height:100%;object-fit:cover}
+.onboarding-photo-info{font-size:12px;color:#64748b;line-height:1.45}.onboarding-photo-info b{display:block;color:#334155;margin-bottom:3px}
+.onboarding-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:22px;padding-top:18px;border-top:1px solid #edf1f5}
+.onboarding-actions button{border-radius:11px;padding:11px 16px;font-weight:850;cursor:pointer}
+.onboarding-skip{border:1px solid #d7e0ea;background:#fff;color:#334155}.onboarding-save{border:0;background:#1769e8;color:#fff}
+@media(max-width:620px){.onboarding-grid{grid-template-columns:1fr}.onboarding-field.full{grid-column:auto}.onboarding-actions{flex-direction:column}.onboarding-actions button{width:100%}}
+</style>
+
+<div id="contractorOnboardingOverlay" aria-hidden="true">
+  <div class="contractor-onboarding-card" role="dialog" aria-modal="true" aria-labelledby="contractorOnboardingTitle">
+    <h2 id="contractorOnboardingTitle">Set up your contractor profile</h2>
+    <p class="lead">Make your TradeMatch page yours. Add your company, bio, and profile photo now, or skip and finish it later from <b>View Profile</b>.</p>
+    <div class="onboarding-grid">
+      <div class="onboarding-field"><label for="onboardingFullName">Your Name</label><input id="onboardingFullName" type="text"></div>
+      <div class="onboarding-field"><label for="onboardingCompany">Company Name</label><input id="onboardingCompany" type="text" placeholder="Your company name"></div>
+      <div class="onboarding-field"><label for="onboardingTrade">Trade</label><select id="onboardingTrade"><option value="">Choose a trade</option><option>Plumbing</option><option>Electrical</option><option>HVAC</option><option>Handyman</option><option>Roofing</option><option>Painting</option></select></div>
+      <div class="onboarding-field"><label for="onboardingArea">Service Area</label><input id="onboardingArea" type="text" placeholder="Louisville, KY"></div>
+      <div class="onboarding-field full"><label for="onboardingBio">Your Bio</label><textarea id="onboardingBio" placeholder="Tell customers who you are, what you do, your experience, and what makes your services useful."></textarea></div>
+      <div class="onboarding-field full"><label>Profile Picture</label><div class="onboarding-photo"><div id="onboardingAvatar" class="onboarding-avatar">TM</div><div class="onboarding-photo-info"><b>Add a profile picture</b>Upload a photo of yourself. If you skip the photo, TradeMatch will automatically use your initials.</div><button type="button" class="onboarding-skip" onclick="document.getElementById('onboardingPictureInput').click()">Choose Image</button><input id="onboardingPictureInput" type="file" accept="image/*" style="display:none" onchange="previewOnboardingPicture(event)"></div></div>
+    </div>
+    <div class="onboarding-actions"><button type="button" class="onboarding-skip" onclick="skipContractorOnboarding()">Skip for now</button><button type="button" class="onboarding-save" onclick="saveContractorOnboarding()">Save My Profile</button></div>
+  </div>
+</div>
+
+<script id="personal-contractor-onboarding-script">
+(function(){
+  const A='tradematch_contractor_account_v3';
+  const S='tradematch_contractor_session_v3';
+  const PIC='tradematch_contractor_profile_picture_v1';
+  let pendingPicture='';
+
+  function readAccount(){try{return JSON.parse(localStorage.getItem(A)||'{}')}catch(e){return {}}}
+  function writeAccount(a){localStorage.setItem(A,JSON.stringify(a))}
+  function initials(name){
+    const p=String(name||'').trim().split(/\\s+/).filter(Boolean);
+    if(!p.length)return 'TM';
+    return p.length===1?p[0].slice(0,2).toUpperCase():(p[0][0]+p[p.length-1][0]).toUpperCase();
+  }
+  function initialsData(name){
+    const txt=initials(name), svg=`<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160"><rect width="160" height="160" rx="80" fill="#0b2545"/><text x="80" y="92" text-anchor="middle" font-family="Arial,sans-serif" font-size="52" font-weight="700" fill="white">${txt}</text></svg>`;
+    return 'data:image/svg+xml;charset=UTF-8,'+encodeURIComponent(svg);
+  }
+  function pictureFor(a){return a.profilePicture||localStorage.getItem(PIC)||initialsData(a.name||'TradeMatch')}
+  function setValue(id,v){const e=document.getElementById(id);if(e)e.value=v||''}
+  function refreshOnboardingPreview(){
+    const a=readAccount(), name=document.getElementById('onboardingFullName')?.value||a.name||'';
+    const box=document.getElementById('onboardingAvatar');if(!box)return;
+    const src=pendingPicture||pictureFor(Object.assign({},a,{name}));
+    box.innerHTML='<img src="'+src+'" alt="Profile preview">';
+  }
+  window.previewOnboardingPicture=function(e){
+    const f=e.target.files&&e.target.files[0];if(!f)return;
+    if(!f.type.startsWith('image/'))return alert('Please choose an image file.');
+    const r=new FileReader();r.onload=function(ev){pendingPicture=ev.target.result;refreshOnboardingPreview()};r.readAsDataURL(f);
+  };
+  window.openContractorOnboarding=function(){
+    const a=readAccount();pendingPicture=a.profilePicture||localStorage.getItem(PIC)||'';
+    setValue('onboardingFullName',a.name);setValue('onboardingCompany',a.businessName);setValue('onboardingTrade',a.trade);setValue('onboardingArea',a.serviceArea);setValue('onboardingBio',a.about);refreshOnboardingPreview();
+    const o=document.getElementById('contractorOnboardingOverlay');if(o){o.classList.add('open');o.setAttribute('aria-hidden','false')}
+  };
+  function close(){const o=document.getElementById('contractorOnboardingOverlay');if(o){o.classList.remove('open');o.setAttribute('aria-hidden','true')}}
+  window.skipContractorOnboarding=function(){
+    const a=readAccount();a.profileSetupSkipped=true;writeAccount(a);applyPersonalData();close();if(typeof showToast==='function')showToast('Profile saved. You can finish it later from View Profile.');
+  };
+  window.saveContractorOnboarding=function(){
+    const a=readAccount();
+    a.name=(document.getElementById('onboardingFullName')?.value||a.name||'').trim();
+    a.businessName=(document.getElementById('onboardingCompany')?.value||'').trim();
+    a.trade=document.getElementById('onboardingTrade')?.value||'';
+    a.serviceArea=(document.getElementById('onboardingArea')?.value||'').trim();
+    a.about=(document.getElementById('onboardingBio')?.value||'').trim();
+    a.profilePicture=pendingPicture||'';
+    a.profileSetupSkipped=false;
+    writeAccount(a);
+    if(pendingPicture)localStorage.setItem(PIC,pendingPicture);else localStorage.removeItem(PIC);
+    applyPersonalData();close();if(typeof showToast==='function')showToast('Your contractor profile is ready.');
+  };
+  function applyPersonalData(){
+    const a=readAccount(), name=a.name||'Contractor', company=a.businessName||'Your Company';
+    const trade=a.trade||'Contractor', area=a.serviceArea||'Louisville, KY', pic=pictureFor(a);
+    document.querySelectorAll('[data-contractor-name]').forEach(e=>e.textContent=name);
+    document.querySelectorAll('.profile-dropdown-head strong').forEach(e=>e.textContent=name);
+    document.querySelectorAll('.profile-dropdown-head span').forEach(e=>e.textContent=company);
+    document.querySelectorAll('.avatar,.profile-avatar,#pageProfile .profile-edit-top img').forEach(img=>{img.src=pic;img.alt=name+' profile picture'});
+    document.querySelectorAll('.dash-head h1').forEach(e=>e.textContent='Good morning, '+name.split(/\\s+/)[0]+'!');
+    const title=document.getElementById('pageProfile')?.querySelector('.profile-edit-top h2');if(title)title.textContent=name;
+    const sub=document.getElementById('pageProfile')?.querySelector('.profile-edit-top p');if(sub)sub.textContent=(trade||'Contractor')+' · '+area;
+    const inputs=document.querySelectorAll('#pageProfile .edit-grid input,#pageProfile .edit-grid textarea,#pageProfile .edit-grid select');
+    if(inputs.length>=6){
+      const vals=[name,company,trade,area,a.hourlyRate||'',a.about||''];
+      inputs.forEach((el,i)=>{if(vals[i]!==undefined)el.value=vals[i]});
+    }
+    document.querySelectorAll('[data-contractor-company]').forEach(e=>e.textContent=company);
+    document.querySelectorAll('[data-contractor-trade]').forEach(e=>e.textContent=trade);
+    document.querySelectorAll('[data-contractor-bio]').forEach(e=>e.textContent=a.about||'Add your bio from View Profile.');
+  }
+  window.getContractorAccount=function(){return readAccount()};
+  window.contractorInitials=initials;
+  window.applyProfile=applyPersonalData;
+
+  // Replace signup with the profile-aware flow while keeping the existing email/password requirements.
+  window.createContractorAccount=function(){
+    const n=document.getElementById('contractorSignupName').value.trim();
+    const e=document.getElementById('contractorSignupEmail').value.trim().toLowerCase();
+    const p=document.getElementById('contractorSignupPassword').value;
+    const c=document.getElementById('contractorSignupConfirm').value;
+    const err=document.getElementById('contractorSignupError'), ok=document.getElementById('contractorSignupSuccess');
+    if(err)err.style.display='none';if(ok)ok.style.display='none';
+    if(!n)return err&&(err.textContent='Please enter your full name.',err.style.display='block');
+    if(!e)return err&&(err.textContent='Please enter an email.',err.style.display='block');
+    if(!p)return err&&(err.textContent='Please enter a password.',err.style.display='block');
+    if(p!==c)return err&&(err.textContent='The passwords do not match.',err.style.display='block');
+    const old=readAccount();if(old.email&&old.email===e)return err&&(err.textContent='An account with this email already exists. Please log in.',err.style.display='block');
+    const newAccount={name:n,email:e,password:p,businessName:'',trade:'',serviceArea:'',hourlyRate:'',about:'',profilePicture:'',profileSetupSkipped:false};
+    writeAccount(newAccount);
+    try{
+      const registryKey='tradematch_contractor_accounts_v1';
+      const registry=JSON.parse(localStorage.getItem(registryKey)||'[]');
+      const idx=registry.findIndex(a=>String(a.email||'').toLowerCase()===e);
+      if(idx>=0) registry[idx]=newAccount; else registry.push(newAccount);
+      localStorage.setItem(registryKey,JSON.stringify(registry));
+    }catch(regErr){}
+    localStorage.setItem('tradematch_demo_login_email',e);localStorage.setItem(S,'true');
+    document.getElementById('contractorAuthScreen').classList.add('auth-hidden');
+    setTimeout(openContractorOnboarding,100);
+  };
+  window.contractorPortalLogin=function(){
+    const e=document.getElementById('contractorLoginEmail').value.trim().toLowerCase(),p=document.getElementById('contractorLoginPassword').value;
+    const err=document.getElementById('contractorLoginError');if(err)err.style.display='none';
+    if(!e||!p){if(err){err.textContent='Enter your email and password to continue.';err.style.display='block'}return}
+    let a=readAccount();
+    if(!a.email||a.email===e){a=Object.assign({},a,{email:e});writeAccount(a)}
+    localStorage.setItem(S,'true');localStorage.setItem('tradematch_demo_login_email',e);document.getElementById('contractorAuthScreen').classList.add('auth-hidden');
+    setTimeout(function(){applyPersonalData();if(!a.profileSetupSkipped&&!a.profileSetupComplete&&(!a.businessName||!a.about||!a.profilePicture))openContractorOnboarding()},100);
+  };
+  document.addEventListener('DOMContentLoaded',function(){
+    const a=readAccount();applyPersonalData();
+    if(localStorage.getItem(S)==='true'&&!a.profileSetupSkipped&&!a.profileSetupComplete&&(!a.businessName||!a.about||!a.profilePicture))setTimeout(openContractorOnboarding,250);
+  });
+})();
+</script>
+
+<style id="profile-photo-upload-final-style">
+.profile-photo-edit{position:relative;width:92px;height:92px;flex:0 0 92px}
+.profile-photo-edit>img{width:92px!important;height:92px!important;border-radius:50%;object-fit:cover;display:block}
+.profile-photo-change{position:absolute;right:-3px;bottom:-3px;width:31px;height:31px;border:2px solid #fff;border-radius:50%;background:#1769e8;color:#fff;cursor:pointer;font-size:14px;box-shadow:0 3px 10px rgba(0,0,0,.18)}
+.profile-photo-text-button{border:1px solid #d7e0ea;background:#fff;color:#1769e8;border-radius:9px;padding:7px 10px;font-weight:800;cursor:pointer}
+</style>
+<script id="profile-photo-upload-final-script">
+(function(){
+  const A='tradematch_contractor_account_v3', PIC='tradematch_contractor_profile_picture_v1';
+  function account(){try{return JSON.parse(localStorage.getItem(A)||'{}')}catch(e){return {}}}
+  function save(a){localStorage.setItem(A,JSON.stringify(a))}
+  function initials(name){const p=String(name||'').trim().split(/\s+/).filter(Boolean);if(!p.length)return 'TM';return p.length===1?p[0].slice(0,2).toUpperCase():(p[0][0]+p[p.length-1][0]).toUpperCase()}
+  function initialsData(name){const t=initials(name);const svg='<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160"><rect width="160" height="160" rx="80" fill="#0b2545"/><text x="80" y="96" text-anchor="middle" font-family="Arial,sans-serif" font-size="52" font-weight="700" fill="white">'+t+'</text></svg>';return 'data:image/svg+xml;charset=UTF-8,'+encodeURIComponent(svg)}
+  function fallback(a){return initialsData(a.name||'TradeMatch')}
+  function apply(){
+    const a=account(), pic=a.profilePicture||localStorage.getItem(PIC)||fallback(a), name=a.name||'Contractor';
+    document.querySelectorAll('.avatar,.profile-avatar,#pageProfile .profile-edit-top img,.profile-dropdown-head img,[data-contractor-avatar]').forEach(el=>{
+      if(el.tagName==='IMG'){el.src=pic;el.alt=name+' profile picture'}
+      else {el.style.backgroundImage='url("'+pic.replace(/"/g,'%22')+'")';el.style.backgroundSize='cover';el.style.backgroundPosition='center';el.textContent=''}
+    });
+  }
+  window.changeContractorPicture=function(){const input=document.getElementById('contractorProfilePictureInput');if(input){input.value='';input.click()}};
+  window.handleContractorPicture=function(e){
+    const f=e.target.files&&e.target.files[0];if(!f)return;
+    if(!f.type.startsWith('image/')){alert('Please choose an image file.');return}
+    const r=new FileReader();
+    r.onload=function(ev){
+      const data=ev.target.result,a=account();
+      a.profilePicture=data;a.profileSetupSkipped=false;a.profileSetupComplete=true;save(a);localStorage.setItem(PIC,data);
+      apply();
+      if(typeof window.applyProfile==='function')window.applyProfile();
+      if(typeof window.showToast==='function')window.showToast('Profile picture uploaded successfully');
+    };
+    r.readAsDataURL(f);
+  };
+  window.clearContractorPicture=function(){
+    const a=account();a.profilePicture='';save(a);localStorage.removeItem(PIC);apply();if(typeof window.applyProfile==='function')window.applyProfile();if(typeof window.showToast==='function')window.showToast('Profile picture removed — your initials are now showing');
+  };
+  // Make onboarding selection immediately persist as the account photo once saved.
+  const originalPreview=window.previewOnboardingPicture;
+  window.previewOnboardingPicture=function(e){
+    if(originalPreview)originalPreview(e);
+    const f=e.target.files&&e.target.files[0];if(!f||!f.type.startsWith('image/'))return;
+    const r=new FileReader();r.onload=function(ev){
+      const a=account();a.profilePicture=ev.target.result;save(a);localStorage.setItem(PIC,ev.target.result);apply();
+    };r.readAsDataURL(f);
+  };
+  document.addEventListener('DOMContentLoaded',apply);
 })();
 </script>
 
